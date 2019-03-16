@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <fieldset>
+      <field name="id" filter="safehtml" type="hidden"  required="true" />
+       <field name="merchant_id" filter="safehtml" type="text"  required="true" label="COM_LOTTO_MERCHAND_ID" description="" hint=""/>
+      <field name="merchant_key" filter="safehtml" type="text"  required="true" label="COM_LOTTO_MERCHAND_KEY" description="" hint=""/>
+  </fieldset>
+</form>

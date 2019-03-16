@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <fieldset>
+       <field name="Tiraje_number" filter="safehtml" type="text"  required="true" label="COM_LOTTO_USERS_TICKETS_TIRAJ" description="" hint="COM_LOTTO_USERS_TICKETS_TIRAJ"/>
+      <field name="selection_numbers" filter="safehtml" type="text" default="6" required="true" label="COM_LOTTO_SELECTION_NUMBERS" description="" hint="COM_LOTTO_SELECTION_NUMBERS"/>
+      <field name="ticket_total_numbers" filter="safehtml" type="text" required="true" default="49" label="COM_LOTTO_TICKET_TOTAL_NUMBERS" description="" hint="COM_LOTTO_TICKET_TOTAL_NUMBERS"/>
+      <field name="additional_selection_numbers" filter="safehtml" type="text" required="true" default="2" label="COM_LOTTO_ADDITIONAL_SELECTION_NUMBERS" description="" hint="COM_LOTTO_ADDITIONAL_SELECTION_NUMBERS"/>
+      <field name="additional_ticket_total_numbers" filter="safehtml" type="text" required="true" default="10"  label="COM_LOTTO_TICKET_TOTAL_NUMBERS" description="" hint="COM_LOTTO_TICKET_TOTAL_NUMBERS"/>
+      <field name="playing_date"  type="calendar" required="true" label="COM_LOTTO_PLAYING_DATE" description="" hint="COM_LOTTO_PLAYING_DATE"/>
+      <field name="ticket_price" filter="safehtml" type="text" required="true" label="COM_LOTTO_PRICE" default="2" description="" hint="COM_LOTTO_PRICE"/>
+    </fieldset>
+</form>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <fieldset>
+       <field name="tiraje_number" filter="safehtml" type="text"  required="true" label="COM_LOTTO_USERS_TICKETS_TIRAJ" description="" hint="COM_LOTTO_USERS_TICKETS_TIRAJ"/>
+      <field name="amount_win_numbers" filter="safehtml" type="text" default="" required="true" label="COM_LOTTO_WINNING_AMOUNT" description="" hint="COM_LOTTO_WINNING_AMOUNT"/>
+      <field name="prize" filter="safehtml" type="text" required="true" default="" label="COM_LOTTO_WINNING_PRIZE" description="" hint="COM_LOTTO_WINNING_PRIZE"/>
+
+    </fieldset>
+</form>

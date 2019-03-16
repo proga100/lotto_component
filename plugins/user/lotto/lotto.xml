@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" method="upgrade" type="plugin" group="user">
+	<name>Lotto user</name>
+	<author>flance</author>
+	<creationDate>2018</creationDate>
+	<copyright>(C) 2012. All rights reserved.</copyright>
+	<license>GNU/GPL v.3 or later.</license>
+	<authorEmail></authorEmail>
+	<authorUrl>flance.info</authorUrl>
+	<version>1.0</version>
+	<description>Delete and Sinchronize User info from lotto table</description>
+	<files>
+		<filename plugin="lotto">lotto.php</filename>
+		<filename>index.html</filename>
+	</files>
+</extension>

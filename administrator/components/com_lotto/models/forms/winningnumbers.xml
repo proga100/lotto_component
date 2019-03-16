@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <fieldset>
+    		
+	<field name="tiraje_number" 
+	type="sql" 
+	label="COM_LOTTO_USERS_TICKETS_TIRAJ" 
+	description="COM_LOTTO_USERS_TICKETS_TIRAJ" 
+	required="true"
+	query="SELECT id as value, Tiraje_number AS tiraje_number FROM #__lotto_tiraje"
+	/>
+
+   <field name="main_winning_numbers" filter="safehtml" type="text" default="" required="true" label="COM_LOTTO_WINNING_NUMBERS" description="" hint="COM_LOTTO_WINNING_NUMBERS"/>
+      <field name="additional_winning_numbers" filter="safehtml" type="text" required="true" default="" label="COM_LOTTO_WINNING_ADD_NUMBERS" description="" hint="COM_LOTTO_WINNING_ADD_NUMBERS"/>
+
+      <field name="winning_prize_1" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_PRIZE_1" description="" hint=""/>
+      <field name="winning_prize_number_1" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_NUMBER" description="" hint=""/>
+      <field name="winning_prize_add_number_1" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_ADD_NUMBER" description="" hint=""/>
+
+      <field name="winning_prize_number_2" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_NUMBER" description="" hint=""/>
+      <field name="winning_prize_add_number_2" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_ADD_NUMBER" description="" hint=""/>
+      <field name="winning_prize_2" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_PRIZE_2" description="" hint=""/>
+
+      <field name="winning_prize_number_3" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_NUMBER" description="" hint=""/>
+      <field name="winning_prize_add_number_3" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_ADD_NUMBER" description="" hint=""/>
+      <field name="winning_prize_3" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_PRIZE_3" description="" hint=""/>
+
+      <field name="winning_prize_number_4" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_NUMBER" description="" hint=""/>
+      <field name="winning_prize_add_number_4" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_ADD_NUMBER" description="" hint=""/>
+      <field name="winning_prize_4" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_PRIZE_4" description="" hint=""/>
+
+      <field name="winning_prize_number_5" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_NUMBER" description="" hint=""/>
+      <field name="winning_prize_add_number_5" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_ADD_NUMBER" description="" hint=""/>
+      <field name="winning_prize_5" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_PRIZE_5" description="" hint=""/>
+
+      <field name="winning_prize_number_6" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_NUMBER" description="" hint=""/>
+      <field name="winning_prize_add_number_6" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_ADD_NUMBER" description="" hint=""/>
+      <field name="winning_prize_6" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_PRIZE_6" description="" hint=""/>
+
+      <field name="winning_prize_number_7" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_NUMBER" description="" hint=""/>
+      <field name="winning_prize_add_number_7" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_ADD_NUMBER" description="" hint=""/>
+      <field name="winning_prize_7" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_PRIZE_7" description="" hint=""/>
+	
+	
+	  <field name="winning_prize_number_8" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_NUMBER" description="" hint=""/>
+      <field name="winning_prize_add_number_8" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_ADD_NUMBER" description="" hint=""/>
+      <field name="winning_prize_8" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_PRIZE_8" description="" hint=""/>
+
+		 <field name="winning_prize_number_9" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_NUMBER" description="" hint=""/>
+      <field name="winning_prize_add_number_9" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_ADD_NUMBER" description="" hint=""/>
+      <field name="winning_prize_9" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_PRIZE_9" description="" hint=""/>
+		
+		
+		 <field name="winning_prize_number_10" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_NUMBER" description="" hint=""/>
+      <field name="winning_prize_add_number_10" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_ADD_NUMBER" description="" hint=""/>
+      <field name="winning_prize_10" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_PRIZE_10" description="" hint=""/>
+
+		 <field name="winning_prize_number_11" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_NUMBER" description="" hint=""/>
+      <field name="winning_prize_add_number_11" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_ADD_NUMBER" description="" hint=""/>
+      <field name="winning_prize_11" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_PRIZE_11" description="" hint=""/>
+
+
+ <field name="winning_prize_number_12" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_NUMBER" description="" hint=""/>
+      <field name="winning_prize_add_number_12" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_ADD_NUMBER" description="" hint=""/>
+      <field name="winning_prize_12" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_PRIZE_12" description="" hint=""/>
+
+
+ <field name="winning_prize_number_13" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_NUMBER" description="" hint=""/>
+      <field name="winning_prize_add_number_13" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_ADD_NUMBER" description="" hint=""/>
+      <field name="winning_prize_13" filter="safehtml" type="text" required="false" default="" label="COM_LOTTO_WINNING_PRIZE_13" description="" hint=""/>
+
+  </fieldset>
+</form>

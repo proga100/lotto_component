@@ -1,0 +1,69 @@
+.icon-48-users {
+      background-image: url(../images/l_users.png);
+      padding-left:60px!important;
+}
+
+.icon-48-user {
+      background-image: url(../images/l_users.png);
+      padding-left:60px!important;
+}
+
+.color-box-users { 
+      float: left;      width: 15px;      height: 15px;      margin-right: 5px;      border: 1px solid rgba(0, 0, 0, .2);}
+
+
+
+.other-filters{
+    padding: 0 14px;
+}
+
+table.t_width {
+    width: 100%;
+}
+
+td.table_td {
+    width: 10%;
+}
+
+td.table_td_sub {
+    width: 40%;
+}
+td.col_4 {
+    padding: 0px !important;
+}
+
+table.t_width {
+    width: 100%;
+    border-left: 1px solid;
+    border-color: #ddd;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-top: none;
+    border-right: 1px solid #ddd;
+}
+td.col_4.sub {
+    width: 67%;
+}
+
+.main {
+    background: beige;
+    width: 100%;
+    min-height: 300px;
+}
+.additional {
+    background: beige;
+    width: 100%;
+    min-height: 200px;
+}
+
+.prize_b_1, .prize_b_2, .prize_b_3{
+
+    float:left;
+    width:30%;
+    text-align: center;
+}
+
+.prize_b_2, .prize_b_3{
+    margin-left: 20px;
+}

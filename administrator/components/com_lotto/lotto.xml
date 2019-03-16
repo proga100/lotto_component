@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+    <name>com_lotto</name>
+    <creationDate>2018-10-21</creationDate>
+    <copyright>2018 flance LTD</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <author>flance ltd</author>
+    <authorEmail>tutyou1972@gmail.com</authorEmail>
+    <authorUrl>flance.info</authorUrl>
+    <version>CVS: 1.0.0</version>
+    <description>Lotto Component</description>
+    
+    
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <update> <!-- Runs on update -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/update.mysql.utf8.sql</file>
+        </sql>
+    </update>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>lotto.php</filename>
+        <filename>controller.php</filename>
+        <filename>router.php</filename>
+        <folder>views</folder>
+        <folder>models</folder>
+        <folder>controllers</folder>
+        <folder>helpers</folder>
+    </files>
+    <media destination="com_lotto" folder="media">
+        <folder>js</folder>
+        <folder>css</folder>
+    </media>
+    <languages folder="site/languages">
+        
+			<language tag="en-GB">en-GB/en-GB.com_lotto.ini</language>
+			<language tag="ru-RU">ru-RU/ru-RU.com_lotto.ini</language>
+    </languages>
+    <administration>
+        <menu>COM_LOTTO</menu>
+        <submenu>
+            
+			<menu link="option=com_lotto&amp;view=users" view="users" alt="Lotto/Users">COM_LOTTO_TITLE_USERS</menu>
+            <menu link="option=com_lotto&amp;view=tickets" view="users" alt="Lotto/Tickets">COM_LOTTO_TITLE_TICKETS</menu>
+
+
+
+        </submenu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
+            <filename>lotto.php</filename>
+            <folder>controllers</folder>
+            <folder>assets</folder>
+            <folder>helpers</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+        <languages folder="administrator/languages">
+            
+			<language tag="en-GB">en-GB/en-GB.com_lotto.ini</language>
+			<language tag="en-GB">en-GB/en-GB.com_lotto.sys.ini</language>
+			<language tag="ru-RU">ru-RU/ru-RU.com_lotto.ini</language>
+			<language tag="ru-RU">ru-RU/ru-RU.com_lotto.sys.ini</language>
+        </languages>
+    </administration>
+    <config>
+        <fields name="params">
+            <fieldset name="component">
+                <field name="save_history" default="0" />
+            </fieldset>
+        </fields>
+    </config>
+    <plugins>
+        <plugin group="search" plugin="lotto"/>
+    </plugins>
+    
+</extension>
+<!-- Component built by the Joomla Component Creator -->
+<!-- http://www.component-creator.com/ -->

@@ -1,0 +1,365 @@
+<?php
+
+/**
+ * @version    CVS: 1.0.0
+ * @package    Com_Lotto
+ * @author     flance ltd <tutyou1972@gmail.com>
+ * @copyright  2018 flance LTD
+ * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ */
+// No direct access
+defined('_JEXEC') or die;
+
+use Joomla\Utilities\ArrayHelper;
+/**
+ * user Table class
+ *
+ * @since  1.6
+ */
+class LottoTabletiraje extends JTable
+{
+	/**
+	 * Check if a field is unique
+	 *
+	 * @param   string  $field  Name of the field
+	 *
+	 * @return bool True if unique
+	 */
+	private function isUnique ($field)
+	{
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+
+		$query
+			->select($db->quoteName($field))
+			->from($db->quoteName($this->_tbl))
+			->where($db->quoteName($field) . ' = ' . $db->quote($this->$field))
+			->where($db->quoteName('id') . ' <> ' . (int) $this->{$this->_tbl_key});
+
+		$db->setQuery($query);
+		$db->execute();
+
+		return ($db->getNumRows() == 0) ? true : false;
+	}
+
+	/**
+	 * Constructor
+	 *
+	 * @param   JDatabase  &$db  A database connector object
+	 */
+	public function __construct(&$db)
+	{
+		JObserverMapper::addObserverClassToClass('JTableObserverContenthistory', 'LottoTabletiraje', array('typeAlias' => 'com_lotto.tiraje'));
+		parent::__construct('#__lotto_tiraje', 'id', $db);
+	}
+
+	/**
+	 * Overloaded bind function to pre-process the params.
+	 *
+	 * @param   array  $array   Named array
+	 * @param   mixed  $ignore  Optional array or list of parameters to ignore
+	 *
+	 * @return  null|string  null is operation was satisfactory, otherwise returns an error
+	 *
+	 * @see     JTable:bind
+	 * @since   1.5
+	 */
+	public function bind($array, $ignore = '')
+	{
+
+
+	    $date = JFactory::getDate();
+		$task = JFactory::getApplication()->input->get('task');
+	    
+		$input = JFactory::getApplication()->input;
+		$task = $input->getString('task', '');
+
+		if (isset($array['params']) && is_array($array['params']))
+		{
+			$registry = new JRegistry;
+			$registry->loadArray($array['params']);
+			$array['params'] = (string) $registry;
+		}
+
+		if (isset($array['metadata']) && is_array($array['metadata']))
+		{
+			$registry = new JRegistry;
+			$registry->loadArray($array['metadata']);
+			$array['metadata'] = (string) $registry;
+		}
+
+		if (!JFactory::getUser()->authorise('core.admin', 'com_lotto.tiraje.' . $array['id']))
+		{
+			$actions         = JAccess::getActionsFromFile(
+				JPATH_ADMINISTRATOR . '/components/com_lotto/access.xml',
+				"/access/section[@name='user']/"
+			);
+			$default_actions = JAccess::getAssetRules('com_lotto.tiraje.' . $array['id'])->getData();
+			$array_jaccess   = array();
+
+			foreach ($actions as $action)
+			{
+                if (key_exists($action->name, $default_actions))
+                {
+                    $array_jaccess[$action->name] = $default_actions[$action->name];
+                }
+			}
+
+			$array['rules'] = $this->JAccessRulestoArray($array_jaccess);
+		}
+
+		// Bind the rules for ACL where supported.
+		if (isset($array['rules']) && is_array($array['rules']))
+		{
+			$this->setRules($array['rules']);
+		}
+
+
+
+        // Get a db connection.
+        $db = JFactory::getDbo();
+
+// Create a new query object.
+        $query = $db->getQuery(true);
+
+// Select all records from the user profile table where key begins with "custom.".
+// Order it by the ordering field.
+        $query->select($db->quoteName(array('id',
+            'Tiraje_number',
+            'selection_numbers',
+            'ticket_total_numbers',
+            'additional_selection_numbers',
+            'additional_ticket_total_numbers',
+            'playing_date',
+            'ticket_price'
+            )));
+        $query->from($db->quoteName('#__lotto_tiraje'));
+        $query->where($db->quoteName('Tiraje_number') . ' = '. $db->quote($array['Tiraje_number']));
+
+
+// Reset the query using our newly populated query object.
+        $db->setQuery($query);
+
+// Load the results as a list of stdClass objects (see later for more options on retrieving data).
+        $results = $db->loadObjectList();
+
+
+        if ($results[0]){
+
+            $fields = array(
+                $db->quoteName('Tiraje_number') . ' = ' . $db->quote($array['Tiraje_number']),
+                $db->quoteName('selection_numbers') . ' = ' . $db->quote($array['selection_numbers']),
+                 $db->quoteName('ticket_total_numbers') . ' = ' . $db->quote($array['ticket_total_numbers']),
+                $db->quoteName('additional_selection_numbers') . ' = ' . $db->quote($array['additional_selection_numbers']),
+                $db->quoteName('additional_ticket_total_numbers') . ' = ' . $db->quote($array['additional_ticket_total_numbers']),
+                $db->quoteName('playing_date') . ' = ' . $db->quote($array['playing_date']),
+                $db->quoteName('ticket_price') . ' = ' . $db->quote($array['ticket_price'])
+
+             );
+
+// Conditions for which records should be updated.
+            $conditions = array(
+                $db->quoteName('Tiraje_number') . ' = '.$array['Tiraje_number']
+
+            );
+
+            $query->update($db->quoteName('#__lotto_tiraje'))->set($fields)->where($conditions);
+
+            $db->setQuery($query);
+
+            $result = $db->execute();
+
+        }else{
+
+            $object = (object) $array;
+
+
+            // Insert the object into the user profile table.
+            $result = JFactory::getDbo()->insertObject('#__lotto_tiraje',  $object );
+        }
+
+
+
+
+		return parent::bind($array, $ignore);
+	}
+
+	/**
+	 * This function convert an array of JAccessRule objects into an rules array.
+	 *
+	 * @param   array  $jaccessrules  An array of JAccessRule objects.
+	 *
+	 * @return  array
+	 */
+	private function JAccessRulestoArray($jaccessrules)
+	{
+		$rules = array();
+
+		foreach ($jaccessrules as $action => $jaccess)
+		{
+			$actions = array();
+
+			if ($jaccess)
+			{
+				foreach ($jaccess->getData() as $group => $allow)
+				{
+					$actions[$group] = ((bool)$allow);
+				}
+			}
+
+			$rules[$action] = $actions;
+		}
+
+		return $rules;
+	}
+
+	/**
+	 * Overloaded check function
+	 *
+	 * @return bool
+	 */
+	public function check()
+	{
+
+	}
+
+	/**
+	 * Method to set the publishing state for a row or list of rows in the database
+	 * table.  The method respects checked out rows by other users and will attempt
+	 * to checkin rows that it can after adjustments are made.
+	 *
+	 * @param   mixed    $pks     An optional array of primary key values to update.  If not
+	 *                            set the instance property value is used.
+	 * @param   integer  $state   The publishing state. eg. [0 = unpublished, 1 = published]
+	 * @param   integer  $userId  The user id of the user performing the operation.
+	 *
+	 * @return   boolean  True on success.
+	 *
+	 * @since    1.0.4
+	 *
+	 * @throws Exception
+	 */
+	public function publish($pks = null, $state = 1, $userId = 0)
+	{
+		// Initialise variables.
+		$k = $this->_tbl_key;
+
+		// Sanitize input.
+		ArrayHelper::toInteger($pks);
+		$userId = (int) $userId;
+		$state  = (int) $state;
+
+		// If there are no primary keys set check to see if the instance key is set.
+		if (empty($pks))
+		{
+			if ($this->$k)
+			{
+				$pks = array($this->$k);
+			}
+			// Nothing to set publishing state on, return false.
+			else
+			{
+				throw new Exception(500, JText::_('JLIB_DATABASE_ERROR_NO_ROWS_SELECTED'));
+			}
+		}
+
+		// Build the WHERE clause for the primary keys.
+		$where = $k . '=' . implode(' OR ' . $k . '=', $pks);
+
+		// Determine if there is checkin support for the table.
+		if (!property_exists($this, 'checked_out') || !property_exists($this, 'checked_out_time'))
+		{
+			$checkin = '';
+		}
+		else
+		{
+			$checkin = ' AND (checked_out = 0 OR checked_out = ' . (int) $userId . ')';
+		}
+
+		// Update the publishing state for rows with the given primary keys.
+		$this->_db->setQuery(
+			'UPDATE `' . $this->_tbl . '`' .
+			' SET `state` = ' . (int) $state .
+			' WHERE (' . $where . ')' .
+			$checkin
+		);
+		$this->_db->execute();
+
+		// If checkin is supported and all rows were adjusted, check them in.
+		if ($checkin && (count($pks) == $this->_db->getAffectedRows()))
+		{
+			// Checkin each row.
+			foreach ($pks as $pk)
+			{
+				$this->checkin($pk);
+			}
+		}
+
+		// If the JTable instance value is in the list of primary keys that were set, set the instance.
+		if (in_array($this->$k, $pks))
+		{
+			$this->state = $state;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Define a namespaced asset name for inclusion in the #__assets table
+	 *
+	 * @return string The asset name
+	 *
+	 * @see JTable::_getAssetName
+	 */
+	protected function _getAssetName()
+	{
+		$k = $this->_tbl_key;
+
+		return 'com_lotto.table.' . (int) $this->$k;
+	}
+
+	/**
+	 * Returns the parent asset's id. If you have a tree structure, retrieve the parent's id using the external key field
+	 *
+	 * @param   JTable   $table  Table name
+	 * @param   integer  $id     Id
+	 *
+	 * @see JTable::_getAssetParentId
+	 *
+	 * @return mixed The id on success, false on failure.
+	 */
+	protected function _getAssetParentId(JTable $table = null, $id = null)
+	{
+		// We will retrieve the parent-asset from the Asset-table
+		$assetParent = JTable::getInstance('Asset');
+
+		// Default: if no asset-parent can be found we take the global asset
+		$assetParentId = $assetParent->getRootId();
+
+		// The item has the component as asset-parent
+		$assetParent->loadByName('com_lotto');
+
+		// Return the found asset-parent-id
+		if ($assetParent->id)
+		{
+			$assetParentId = $assetParent->id;
+		}
+
+		return $assetParentId;
+	}
+
+	/**
+	 * Delete a record by id
+	 *
+	 * @param   mixed  $pk  Primary key value to delete. Optional
+	 *
+	 * @return bool
+	 */
+	public function delete($pk = null)
+	{
+		$this->load($pk);
+		$result = parent::delete($pk);
+		
+		return $result;
+	}
+}

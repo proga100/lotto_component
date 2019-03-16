@@ -1,0 +1,18 @@
+@import 'style.css';
+
+body {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    background: #ccc url(../images/bg.jpg) 0 0 repeat;
+    font-size: 13px;
+    color: #b2b2b2;
+    font-family: 'Open sans',tahoma, arial, sans-serif;
+    font-weight: normal;
+}
+
+
+.tickets_generate {
+@extend .style;
+
+}

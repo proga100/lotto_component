@@ -1,0 +1,256 @@
+
+    .clearfix {
+        clear: both;
+    }
+
+    .floatfix:after {
+        display: block;
+        content: "";
+        clear: both;
+    }
+
+    h1 {
+        text-align: center;
+        color: #8a8b8d;
+        text-shadow: 1px 1px 1px #000;
+        font-family: "Chewy";
+        font-size: 50px;
+    }
+
+    .position {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .wrapper {
+        width: 30%;
+        background-color: #dadada;
+        overflow: hidden;
+        padding: 10px;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        float: left;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+
+
+    .wrapper .ball {
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        line-height: 25px;
+        color: #3d3c3a;
+        border-radius: 100%;
+        float: left;
+        background-color: #fff;
+        margin: 7px;
+        font-weight: 500;
+        box-shadow: 1px 1px 0.5px #000;
+        cursor:pointer;
+    }
+
+    .pay{
+        text-align: center;
+        display: block;
+        background-color: #8a8b8d;
+        outline: none;
+        /* padding: 15px; */
+        border-radius: 10px;
+        font-size: 20px;
+        /* margin: 50px auto; */
+        width: 100%;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+        text-transform: uppercase;
+        font-family: "Chewy";
+        color: white;
+        cursor:pointer;
+    }
+
+    #generate, .confirm {
+        display: block;
+        background-color: #8a8b8d;
+        outline: none;
+        /* padding: 15px; */
+        border-radius: 10px;
+        font-size: 20px;
+        /* margin: 50px auto; */
+        width: 100%;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+        text-transform: uppercase;
+        font-family: "Chewy";
+        color: white;
+        cursor:pointer;
+    }
+
+
+    #history {
+        text-align: center;
+        width: 460px;
+        height: 420px;
+        padding: 20px 0;
+        border-radius: 20px;
+        background-color: #90c5a9;
+        float: left;
+        margin-left: 50px;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        overflow: auto;
+    }
+
+    #history p {
+        font-weight: 500;
+        color: #3d3c3a;
+    }
+
+    .ticket_boxes {
+
+        float: left;
+    }
+
+    .col_tiraj .col {
+        color: #8a8b8d;
+        font-family: "Chewy";
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        line-height: 25px;
+        border-radius: 100%;
+        float: left;
+        background-color: #fff;
+        margin: 0px 10px 10px 10px;
+        font-weight: 500;
+        box-shadow: 1px 1px 0.5px #000;
+        cursor: pointer;
+    }
+
+    .tiraj_sel{
+        float:left;
+        text-align: left;
+        width:50%;
+    }
+    .tiraj_sel h2,.tiraj_sel .h2 {
+        color: #8a8b8d;
+        text-shadow: 1px 1px 1px #000;
+        font-family: "Chewy";
+        font-size:20px;
+
+        margin: 0px;
+    }
+
+
+    .col_h3 {
+        color: #8a8b8d;
+        text-shadow: 1px 1px 1px #000;
+        font-family: "Chewy";
+        font-size:20px;
+        float: left;
+        margin: 0px;
+    }
+
+    .ticket_boxes{
+
+        display:none;
+    }
+
+   .col_tiraj_cal .col_cal {
+        color: #8a8b8d;
+        font-family: "Chewy";
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height:20px;
+
+       float: right;
+        background-color: #fff;
+        margin: 0px 5px 5px 4px;
+        font-weight: 500;
+        box-shadow: 1px 1px 0.5px #000;
+
+    }
+
+
+
+    #tiiraje_amount, #cal_mutiplier_1, #ticket_amount, #cal_mutiplier_2, #ticket_price, #cal_equal{
+
+        float:left;
+    }
+
+    .col_tiraj_final_total {
+        border-top: 3px solid #90c5a9;
+        padding-top: 10px;
+    }
+
+    #tiiraje_amount {
+        margin-left: 30px;
+    }
+
+    .tiraj_calculator {
+        width: 30%;
+        text-align: center;
+        float: right;
+    }
+
+    .t_num_tiraje, .t_num, .t_num_amount{
+
+        float:left;
+
+        border: 1px solid;
+        width: 30%;
+        font-size: 1.2em;
+        color: #8a8b8d;
+        height: 30px;
+    }
+
+    .t_head {
+        font-weight: bold;
+
+        font-size: 1.2em;
+        color: #8a8b8d;
+        text-shadow: 1px 1px 1px #000;
+        height: 45px;
+    }
+
+    .ticket_box {
+        width: 80%;
+        text-align: center;
+        margin-left: 50px
+    }
+
+    .t_num_tiraje {
+        width: 10%;
+        text-align: center;
+
+        border: 1px solid;
+
+    }
+
+    .t_num {
+        width: 30%;
+        text-align: center;
+        border: 1px solid;
+    }
+
+    .ticket_box {
+
+    }
+
+    table#userList {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .tickets_table_th {
+        border: 1px solid;
+    }
+
+    th.tickets_table_th {
+        background: #ccc;
+        color: black;
+    }
+
+
+    button#balance_add {
+        width: 200px;
+        text-align: center;
+        margin: auto;
+    }
