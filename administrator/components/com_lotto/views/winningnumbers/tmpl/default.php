@@ -102,8 +102,12 @@ $tiraje_info = JModelLegacy::getInstance('tiraje', 'LottoModel');
 						<td>
 
 					        <?php // echo $item->tiraje_number;
+
+
                             $tirajeinf =  $tiraje_info->getTirajeInfobyID($item->tiraje_number);
                             print_r ( $tirajeinf[0]->Tiraje_number);
+
+
 
                             ?>
 			            	</td>

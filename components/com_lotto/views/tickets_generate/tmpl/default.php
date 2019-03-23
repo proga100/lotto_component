@@ -33,12 +33,35 @@ $canDelete  = $user->authorise('core.delete', 'com_lotto');
 
        $tiraj_info =  $this->tiraje_info[0];
 
-
+		
 
         $tiraje_number= $tiraj_info->Tiraje_number; ?>
 
         <div class="tiraj_sel">
-            <h2> Тираж    № <?php echo $tiraje_number; ?> </h2>
+            <h2> Тираж    № <?php echo $tiraje_number; ?> </h2> 
+			<h2> <?php 
+			
+			 $source = $tiraj_info->playing_date ;
+				$date = new DateTime($source);
+				
+			
+			echo JText::_('COM_LOTTO_PLAYING_DATE', true)  ."   ".$date->format('d.m.Y');; ?> </h2>
+			<br/>
+			
+			<?php $today = date("Y-m-d H:i:s");
+				
+			
+				if ( $source < $today) {
+					
+					echo "<h2 class='playing_over'> ". JText::_('COM_LOTTO_PLAYING_OVER', true)."</h2>";  
+				
+				return; 
+					
+				}
+				
+				?>
+			
+			
             <div id="ticket_tiraje_number" data-tiraje-number="<?php echo $tiraje_number; ?>"></div>
             <div class="col_tiraj">
                 <div class="col_h3">

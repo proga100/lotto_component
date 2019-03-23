@@ -254,3 +254,7 @@
         text-align: center;
         margin: auto;
     }
+	
+	.playing_over {
+    height: 200px;
+	}
