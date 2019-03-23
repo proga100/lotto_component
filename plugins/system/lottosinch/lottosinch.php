@@ -74,6 +74,9 @@ class plgSystemLottosinch extends JPlugin
 		$this->getAddBalance();
     }
 
+
+    
+
     public function onAfterRoute()
     {
         // Do something onAfterRoute
