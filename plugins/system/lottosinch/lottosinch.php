@@ -75,7 +75,9 @@ class plgSystemLottosinch extends JPlugin
     }
 
 
-    
+
+
+
 
     public function onAfterRoute()
     {

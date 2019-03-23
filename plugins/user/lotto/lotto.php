@@ -52,7 +52,10 @@ class plgUserLotto extends JPlugin
 		
 		return true;
 	}
-	
+
+
+
+    
 	public function onUserAfterSave($data, $isNew, $result, $error){
 		$userId	= JArrayHelper::getValue($data, 'id', 0, 'int');
 		$userName	= JArrayHelper::getValue($data, 'name', '', 'string');
